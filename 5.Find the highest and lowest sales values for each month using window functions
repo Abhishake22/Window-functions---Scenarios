@@ -1,0 +1,27 @@
+CREATE TABLE sales_data (
+  sale_id INT,
+  sale_date DATETIME,
+  sale_value DECIMAL(10, 2)
+);
+
+INSERT INTO sales_data (sale_id, sale_date, sale_value)
+VALUES
+  (1, '2023-01-05', 100.00),
+  (2, '2023-01-12', 150.00),
+  (3, '2023-02-03', 200.00),
+  (4, '2023-02-25', 250.00),
+  (5, '2023-03-08', 180.00),
+  (6, '2023-03-20', 120.00);
+
+
+    Given a table with sales data and timestamps, how would you find the highest and lowest sales values for each month using window functions?
+
+
+    SELECT
+  sale_id,
+  sale_date,
+  sale_value,
+  ROW_NUMBER() OVER (PARTITION BY MONTH(sale_date) ORDER BY sale_value DESC) AS rank_highest,
+  ROW_NUMBER() OVER (PARTITION BY MONTH(sale_date) ORDER BY sale_value ASC) AS rank_lowest
+FROM
+  sales_data;
