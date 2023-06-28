@@ -1,0 +1,11 @@
+product_id,product_name,category,sales_amount
+1,Product A,Electronics,1000
+2,Product B,Electronics,1500
+3,Product C,Appliances,2000
+4,Product D,Appliances,1800
+5,Product E,Clothing,1200
+6,Product F,Clothing,1400
+7,Product G,Electronics,1900
+8,Product H,Appliances,2200
+9,Product I,Clothing,1600
+10,Product J,Electronics,2500
