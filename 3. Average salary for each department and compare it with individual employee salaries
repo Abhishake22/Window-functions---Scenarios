@@ -1,0 +1,28 @@
+Scenario: Calculating the average salary for each department and comparing it with individual employee salaries. 
+Question: How would you calculate the average salary for each department and also display each employee's salary alongside the department average using window functions?
+
+
+CREATE TABLE employees (
+  employee_id INT,
+  department_id INT,
+  employee_name VARCHAR(100),
+  salary DECIMAL(10, 2)
+);
+
+INSERT INTO employees (employee_id, department_id, employee_name, salary)
+VALUES
+  (1, 1, 'John Smith', 5000.00),
+  (2, 1, 'Jane Doe', 6000.00),
+  (3, 2, 'Michael Johnson', 7000.00),
+  (4, 2, 'Emily Davis', 5500.00),
+  (5, 3, 'David Wilson', 8000.00),
+  (6, 3, 'Jessica Brown', 7500.00);
+
+
+SELECT *,AVG(salary) OVER (PARTITION BY department_id) AS Department_Average_salary
+FROM employees
+
+
+
+
+  
